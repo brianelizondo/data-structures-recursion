@@ -1,7 +1,7 @@
 /** product: calculate the product of an array of numbers. */
-
-function product(nums) {
-
+function product(arr) {
+    if (arr.length === 0) return 1;
+    return arr[0] * product(arr.slice(1));
 }
 
 /** longest: return the length of the longest word in an array of words. */
