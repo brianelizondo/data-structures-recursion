@@ -19,9 +19,11 @@ function everyOther(str, idx = 0, characters = ""){
 }
 
 /** isPalindrome: checks whether a string is a palindrome or not. */
-
-function isPalindrome(str) {
-
+function isPalindrome(str, idx = 0, reverseStr = "", palindrome = false){
+    if(idx >= str.length) return palindrome;
+    reverseStr = str[idx] + reverseStr;
+    palindrome = str === reverseStr ? true : false;
+    return isPalindrome(str, idx + 1, reverseStr, palindrome);
 }
 
 /** findIndex: return the index of val in arr (or -1 if val is not present). */
