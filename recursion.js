@@ -5,15 +5,16 @@ function product(arr) {
 }
 
 /** longest: return the length of the longest word in an array of words. */
-
-function longest(words) {
-
+function longest(words, idx = 0, longestValue = 0) {
+    if(words.length === idx) return longestValue;
+    longestValue = Math.max(words[idx].length, longestValue);
+    return longest(words, idx + 1, longestValue)
 }
 
 /** everyOther: return a string with every other letter. */
 
 function everyOther(str) {
-
+    
 }
 
 /** isPalindrome: checks whether a string is a palindrome or not. */
