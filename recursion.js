@@ -8,13 +8,14 @@ function product(arr) {
 function longest(words, idx = 0, longestValue = 0) {
     if(words.length === idx) return longestValue;
     longestValue = Math.max(words[idx].length, longestValue);
-    return longest(words, idx + 1, longestValue)
+    return longest(words, idx + 1, longestValue);
 }
 
 /** everyOther: return a string with every other letter. */
-
-function everyOther(str) {
-    
+function everyOther(str, idx = 0, characters = ""){
+    if(idx >= str.length) return characters;
+    characters += str[idx];
+    return everyOther(str, idx + 2, characters);
 }
 
 /** isPalindrome: checks whether a string is a palindrome or not. */
