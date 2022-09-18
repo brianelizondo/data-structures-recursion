@@ -38,16 +38,24 @@ function findIndex(arr, val, idx = 0){
 }
 
 /** revString: return a copy of a string, but in reverse. */
-function revString(str, idx = 0, reverseStr = "") {
+function revString(str, idx = 0, reverseStr = ""){
     if(idx >= str.length) return reverseStr;
     reverseStr = str[idx] + reverseStr;
     return revString(str, idx + 1, reverseStr);
 }
 
 /** gatherStrings: given an object, return an array of all of the string values. */
-
-function gatherStrings(obj) {
-
+function gatherStrings(obj){
+    let arrStrings = [];
+    for (let key in obj){
+        if(typeof obj[key] === 'string'){
+            arrStrings.push(obj[key]);
+        }
+        if(typeof obj[key] === 'object'){
+            arrStrings.push(...gatherStrings(obj[key]));
+        }
+    }
+    return arrStrings;
 }
 
 /** binarySearch: given a sorted array of numbers, and a value,
